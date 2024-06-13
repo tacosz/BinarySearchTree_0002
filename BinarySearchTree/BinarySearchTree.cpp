@@ -75,7 +75,6 @@ public:
         }
     };
 
-    //membuat dan mendefinisikan prosedur inorder
     void inorder(Node* ptr) {
         if (ROOT == nullptr) {
             cout << "Tree is empty" << endl;

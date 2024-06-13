@@ -121,7 +121,6 @@ public:
 
 int main()
 {
-    //deklarasi object dari class BinaryTree
     BinaryTree obj;
 
     //perulangan while untuk menjalankan program selama bernilai true

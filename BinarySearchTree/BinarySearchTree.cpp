@@ -134,7 +134,6 @@ int main()
         cout << "5. Exit" << endl;
         cout << "Enter your choice (1-5) : ";
 
-        //membuat input untuk pilihan
         char ch;
         cin >> ch;
         cout << endl;

@@ -123,7 +123,6 @@ int main()
 {
     BinaryTree obj;
 
-    //perulangan while untuk menjalankan program selama bernilai true
     while (true)
     {
         cout << "\nMenu" << endl;

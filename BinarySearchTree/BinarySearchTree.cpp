@@ -2,14 +2,16 @@
 #include <string>
 using namespace std;
 
+//membuat class node
 class Node
 {
+    //membuat akses modifier serta deklarasi varibel dan object
 public:
     string info;
     Node* leftchild;
     Node* rightchild;
 
-    //constructor for the node class
+    //constructor untuk class node
     Node(string i, Node* l, Node* r)
     {
         info = i;
@@ -18,16 +20,20 @@ public:
     }
 };
 
+//membuat class BinaryTree
 class BinaryTree
 {
+    //membuat akses modifier dan deklarasi object
 public:
     Node* ROOT;
 
+    //constructor untuk class BinaryTree
     BinaryTree()
     {
         ROOT = nullptr; //initializing root to null
     }
 
+    //membuat dan mendefinisikan prosedur insert
     void insert(string element) //insert a node in the binary search tree
     {
         Node* newNode = new Node(element, nullptr, nullptr); //allocate memory for the new node
@@ -54,9 +60,119 @@ public:
             parent->rightchild = newNode; //Make the right child of the parent point to the new node
         }
     }
+
+    void search(string element, Node*& parent, Node*& currentNode) {
+        currentNode = ROOT;
+        parent = nullptr;
+
+        while ((currentNode != nullptr) && (currentNode->info != element))
+        {
+            parent = currentNode;
+            if (element < currentNode->info)
+                currentNode = currentNode->leftchild;
+            else
+                currentNode = currentNode->rightchild;
+        }
+    };
+
+    //membuat dan mendefinisikan prosedur inorder
+    void inorder(Node* ptr) {
+        if (ROOT == nullptr) {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr != nullptr)
+        {
+            inorder(ptr->leftchild);
+            cout << ptr->info << " ";
+            inorder(ptr->rightchild);
+        }
+    };
+    
+    //membuat dan mendefinisikan prosedur  preorder
+    void preorder(Node* ptr) {
+        if (ROOT == nullptr) {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr != nullptr)
+        {
+            cout << ptr->info << " ";
+            preorder(ptr->leftchild);
+            preorder(ptr->rightchild);
+        }
+    }
+
+    //membuat dan mendefinisikan prosedur postorder
+    void postorder(Node* ptr) {
+        if (ROOT == nullptr) {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr != nullptr)
+        {
+            postorder(ptr->leftchild);
+            postorder(ptr->rightchild);
+            cout << ptr->info << " ";
+        }
+    };
+
 };
 
 int main()
 {
+    //deklarasi object dari class BinaryTree
+    BinaryTree obj;
+
+    //perulangan while untuk menjalankan program selama bernilai true
+    while (true)
+    {
+        //menu program
+        cout << "\nMenu" << endl;
+        cout << "1. Implement insert operation" << endl;
+        cout << "2. Perform inorder traversal" << endl;
+        cout << "3. Perform preorder traversal" << endl;
+        cout << "4. Perform postorder traversal" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice (1-5) : ";
+
+        //membuat input untuk pilihan
+        char ch;
+        cin >> ch;
+        cout << endl;
+
+        //conditional statement berdasarkan input ch
+        switch (ch)
+        {
+        case '1': {
+            cout << "Type a  word : ";
+            string word;
+            cin >> word;
+            obj.insert(word);
+            break;
+        }
+        case '2': {
+            obj.inorder(obj.ROOT);
+            break;
+        }
+        case '3': {
+            obj.preorder(obj.ROOT);
+            break;
+        }
+        case '4': {
+            obj.postorder(obj.ROOT);
+            break;
+        }
+        case '5': {
+            return 0;
+        }
+        default:
+            cout << "Invalid Option" << endl;
+            break;
+        }
+    }
     
 }

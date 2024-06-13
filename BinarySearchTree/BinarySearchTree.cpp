@@ -126,7 +126,6 @@ int main()
     //perulangan while untuk menjalankan program selama bernilai true
     while (true)
     {
-        //menu program
         cout << "\nMenu" << endl;
         cout << "1. Implement insert operation" << endl;
         cout << "2. Perform inorder traversal" << endl;

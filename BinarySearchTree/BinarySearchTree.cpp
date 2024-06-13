@@ -138,7 +138,6 @@ int main()
         cin >> ch;
         cout << endl;
 
-        //conditional statement berdasarkan input ch
         switch (ch)
         {
         case '1': {

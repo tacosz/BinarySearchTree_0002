@@ -23,7 +23,10 @@ class BinaryTree
 public:
     Node* ROOT;
 
-
+    BinaryTree()
+    {
+        ROOT = nullptr; //initializing root to null
+    }
 };
 
 int main()
